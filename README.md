@@ -1,5 +1,6 @@
 ### pythonstock V1 项目简介
 
+### 演示环境：http://heavenbeing.tpddns.cn:9999
 
 **特别说明：股市有风险投资需谨慎，本项目只能用于Python代码学习，股票分析，投资失败亏钱不负责，不算BUG。**
 
