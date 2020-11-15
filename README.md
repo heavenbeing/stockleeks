@@ -88,14 +88,14 @@ docker run -itd --link=mariadb --name stock  \
 
 ```
 docker run -itd --name stock  \
-    -v /data/notebooks:/data/notebooks \
-    -p 8888:8888 \
-    -p 9999:9999 \
-    -e MYSQL_HOST=127.0.0.1 \
+    -v /opt/stock/notebooks:/data/notebooks \
+    -p 9999:8888 \
+    -p 8888:9999 \
+    -e MYSQL_HOST=192.168.1.109 \
     -e MYSQL_USER=root \
-    -e MYSQL_PWD=mariadb \
+    -e MYSQL_PWD=root_123 \
     -e MYSQL_DB=stock_data \
-    pythonstock/pythonstock:latest
+    pythonstockleeks/pythonstockleeks:latest
 ```
 
 进入镜像：

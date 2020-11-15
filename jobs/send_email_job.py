@@ -26,9 +26,9 @@ print(response.text)
 # /stock/data?table_name=guess_indicators_lite_buy_daily
 # /stock/data?table_name=guess_indicators_lite_sell_daily
 email_content = "Ip address:" + "heavenbeing.tpddns.cn\n" \
-                + "stock address:" + "http://heavenbeing.tpddns.cn:9999/\n" \
-                + "买入猜想(超买):" + "http://heavenbeing.tpddns.cn:9999/stock/data?table_name=guess_indicators_lite_buy_daily\n" \
-                + "卖出猜想(超卖):" + "http://heavenbeing.tpddns.cn:9999/stock/data?table_name=guess_indicators_lite_sell_daily\n" \
+                + "stock address:" + "http://heavenbeing.tpddns.cn:8888/\n" \
+                + "买入猜想(超买):" + "http://heavenbeing.tpddns.cn:8888/stock/data?table_name=guess_indicators_lite_buy_daily\n" \
+                + "卖出猜想(超卖):" + "http://heavenbeing.tpddns.cn:8888/stock/data?table_name=guess_indicators_lite_sell_daily\n" \
                 + " \r\n" \
                 + " \r\nsend by python"
 msg = MIMEText(email_content, 'plain', 'utf-8')
