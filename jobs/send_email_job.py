@@ -12,7 +12,8 @@ from_addr = 'heavenbeing@foxmail.com'
 password = 'vxmovadvviffbgbj'
 
 # 收信方邮箱
-to_addr = '1257358834@qq.com,heavenbeing@outlook.com,603331215@qq.com'
+# to_addr = '1257358834@qq.com,heavenbeing@outlook.com,603331215@qq.com'
+to_addr = 'heavenbeing@outlook.com'
 
 # 发信服务器
 smtp_server = 'smtp.qq.com'
