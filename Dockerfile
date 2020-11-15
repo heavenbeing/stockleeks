@@ -3,7 +3,7 @@
 
 # 基础镜像，按照季度，月度更新。不影响应用镜像的构建。
 
-FROM pythonstockleeks/pythonstockleeks:base-2020-09
+FROM pythonstockleeks/pythonstockleeks:base-2020-11
 
 WORKDIR /data
 
