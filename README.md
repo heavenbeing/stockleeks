@@ -1,5 +1,9 @@
 ### pythonstock V1 项目简介
 
+### 演示地址
+
+> http://heavenbeing.tpddns.cn:8888 股票系统 
+
 **特别说明：股市有风险投资需谨慎，本项目只能用于Python代码学习，股票分析，投资失败亏钱不负责，不算BUG。**
 
 ```
@@ -77,9 +81,9 @@ docker run --name mariadb -v /data/mariadb/data:/var/lib/mysql \
     -e MYSQL_ROOT_PASSWORD=mariadb -p 3306:3306 -d mariadb:latest
 
 docker run -itd --link=mariadb --name stock  \
-    -v /data/notebooks:/data/notebooks \
-    -p 8888:8888 \
-    -p 9999:9999 \
+    -v /opt/stock/notebooks:/data/notebooks \
+    -p 9999:8888 \
+    -p 8888:9999 \
     pythonstock/pythonstock:latest
 
 ```
@@ -91,9 +95,9 @@ docker run -itd --name stock  \
     -v /opt/stock/notebooks:/data/notebooks \
     -p 9999:8888 \
     -p 8888:9999 \
-    -e MYSQL_HOST=192.168.1.109 \
+    -e MYSQL_HOST=127.0.0.1 \
     -e MYSQL_USER=root \
-    -e MYSQL_PWD=root_123 \
+    -e MYSQL_PWD=passwd \
     -e MYSQL_DB=stock_data \
     pythonstockleeks/pythonstockleeks:latest
 ```
@@ -110,9 +114,9 @@ sh /data/stock/jobs/cron.daily/run_daily
 
 ### 本地访问端口
 
-> http://localhost:9999 股票系统 
+> http://localhost:8888 股票系统 
 >
-> http://localhost:8888 jupyter
+> http://localhost:9999 jupyter
 
 查看jupyter的密码：
 
