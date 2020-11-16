@@ -176,7 +176,28 @@ CREATE DATABASE IF NOT EXISTS `stock_data` CHARACTER SET utf8 COLLATE utf8_gener
 
 http://docs.sqlalchemy.org/en/latest/core/reflection.html
 
-### 3，web使用datatable显示报表
+### 3.1，jenkins自动化部署
+
+需安装插件：
+publish over ssh
+数据库不建议使用docker，建议使用安装在主机上的数据库
+
+H/10 * * * *
+
+cd /opt/github/stockleeks
+git checkout . && git clean -xdf
+git  pull
+docker ps
+docker images
+bash build.sh
+docker images
+docker ps
+docker stop stock
+docker rm stock
+docker run -itd --name stock      -v /opt/stock/notebooks:/data/notebooks     -p 9999:8888     -p 8888:9999     -e MYSQL_HOST=127.0.0.1     -e MYSQL_USER=root     -e MYSQL_PWD=passwd     -e MYSQL_DB=stock_data     pythonstockleeks/pythonstockleeks:latest
+docker ps
+
+### 3.2，web使用datatable显示报表
 
 通用数据配置，在 libs/stock_web_dic.py 配置数据之后，可以实现动态加载菜单，根据数据库表的行列显示数据。
 
