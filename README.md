@@ -287,3 +287,25 @@ https://pypi.org/project/bokeh/#files
 相关数据执行只支持到10.5.4，版本可以使用，但是10.5.8 就有问题了。
 限制死了版本。看来软件也不能瞎升级，都用最新的有问题。可以解决数据问题。
 (warning:不建议使用docker数据库，建议使用5.7.26版本mysql，稳定可靠bug少)
+
+### 13，增加日历
+
+```
+古老的jquery 代码：
+        $( ".date-picker" ).datepicker({
+            language: 'zh-CN', //设置语言
+            format:"yyyymmdd",
+            showOtherMonths: true,
+            selectOtherMonths: false,
+            autoclose: true,
+            todayHighlight: true
+        });
+针对日期类型的搜索条件增加日历
+
+```
+
+### 14 增加东方财经弹窗窗口、增加指标计算弹窗窗口
+
+发现了一个东方财富的页面，是给pc端用的。
+可以做个弹出框放到系统中。不进行调整了，长宽高可以做的小点。使用iframe引入界面。否则有跨域和样式问题。
+修改指标页面，改成窗口弹窗，做页面适配，方便查看。
