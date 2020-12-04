@@ -145,7 +145,15 @@ class GetStockDataHandler(webBase.BaseHandler):
                 logging.info("eastmoney_name : %s " % eastmoney_name)
                 if eastmoney_name in stock_web.column_names:
                     tmp_idx = stock_web.column_names.index(eastmoney_name)
-                    tmp_url = WEB_EASTMONEY_URL % (tmp_obj["code"], tmp_obj["code"])
+                    code_tmp = tmp_obj["code"]
+
+                    # 判断上海还是 深圳，东方财富 接口要求。
+                    if code_tmp.startswith("6"):
+                        code_tmp = "SH" + code_tmp
+                    else:
+                        code_tmp = "SZ" + code_tmp
+
+                    tmp_url = WEB_EASTMONEY_URL % (tmp_obj["code"], tmp_obj["code"], code_tmp)
                     tmp_obj["eastmoney_url"] = tmp_url
                     logging.info(tmp_idx)
                     logging.info(tmp_obj["eastmoney_url"])
