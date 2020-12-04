@@ -104,8 +104,13 @@
 			showOtherMonths: true,
 			selectOtherMonths: false,
 			autoclose: true,
-			todayHighlight: true
-		});
+            todayHighlight: true,
+            onSelect: function(selected,evnt) {
+                console.log(selected);
+            }
+        }).on('changeDate', function(ev){
+            $('input.column_filter').click();//触发搜索
+        });
 
 		var nameParam = $.getUrlVar('table_name');
 		//console.log(nameParam);

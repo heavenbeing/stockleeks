@@ -303,6 +303,8 @@ https://pypi.org/project/bokeh/#files
 针对日期类型的搜索条件增加日历
 
 ```
+https://www.bootcss.com/p/bootstrap-datetimepicker/
+不是使用jQuery的时间。
 
 ### 14 增加东方财经弹窗窗口、增加指标计算弹窗窗口
 
