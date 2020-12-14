@@ -23,14 +23,15 @@ def stat_all_lite_buy(tmp_datetime):
     # 当六日指标上升到达80时，表示股市已有超买现象
     # 当CCI＞﹢100 时，表明股价已经进入非常态区间——超买区间，股价的异动现象应多加关注。
     # and kdjk >= 80 and kdjd >= 70 and kdjj >= 100  and rsi_6 >= 80  and cci >= 100
+    # and kdjk >= 70 and kdjd >= 60 and kdjj >= 90  and rsi_6 >= 70  and cci >= 90
+    # and kdjk <= 82 and kdjd <= 72 and kdjj <= 102  and rsi_6 <= 82  and cci <= 102
     # 调整参数，提前获取股票增长
     sql_1 = """
             SELECT `date`, `code`, `name`, `changepercent`, `trade`, `open`, `high`, `low`, 
                             `settlement`, `volume`, `turnoverratio`, `amount`, `per`, `pb`, `mktcap`,
                              `nmc` ,`kdjj`,`rsi_6`,`cci`
                         FROM stock_data.guess_indicators_daily WHERE `date` = %s 
-                        and kdjk >= 70 and kdjd >= 60 and kdjj >= 90  and rsi_6 >= 70  and cci >= 90
-                        and kdjk <= 82 and kdjd <= 72 and kdjj <= 102  and rsi_6 <= 82  and cci <= 102
+                        and kdjk >= 82 and kdjd >= 72 and kdjj >= 102  and rsi_6 >= 82  and cci >= 102
     """  # and kdjj > 100 and rsi_6 > 80  and cci > 100 # 调整参数，提前获得股票增长。
 
     try:
@@ -65,7 +66,7 @@ def stat_all_lite_sell(tmp_datetime):
                             `settlement`, `volume`, `turnoverratio`, `amount`, `per`, `pb`, `mktcap`,
                              `nmc` ,`kdjj`,`rsi_6`,`cci`
                         FROM stock_data.guess_indicators_daily WHERE `date` = %s 
-                        and kdjk < 18 and kdjd < 18 and kdjj < 8  and rsi_6 < 18  and cci < -108
+                        and kdjk < 10 and kdjd < 10 and kdjj < 5  and rsi_6 < 10  and cci < -130
     """
 
     try:
