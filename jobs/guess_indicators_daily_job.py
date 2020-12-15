@@ -66,7 +66,7 @@ def stat_all_lite_sell(tmp_datetime):
                             `settlement`, `volume`, `turnoverratio`, `amount`, `per`, `pb`, `mktcap`,
                              `nmc` ,`kdjj`,`rsi_6`,`cci`
                         FROM stock_data.guess_indicators_daily WHERE `date` = %s 
-                        and kdjk < 10 and kdjd < 10 and kdjj < 5  and rsi_6 < 10  and cci < -130
+                        and kdjk < 15 and kdjd < 15 and kdjj < 7  and rsi_6 < 15  and cci < -115
     """
 
     try:
