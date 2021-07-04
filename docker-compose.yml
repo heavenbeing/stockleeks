@@ -17,6 +17,9 @@ services:
             MYSQL_USER: root
             MYSQL_PWD: mariadb
             MYSQL_DB: stock_data
+            LANG: zh_CN.UTF-8
+            LC_CTYPE: zh_CN.UTF-8
+            PYTHONIOENCODING: utf-8
         links:
             - stock_db:stock_db
         restart: always
