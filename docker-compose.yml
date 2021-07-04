@@ -8,6 +8,10 @@ services:
             - "8888:9999"
         volumes: 
             - "./data/notebooks:/data/notebooks"
+            - "./data/logs:/data/logs"
+            - "./jobs:/data/stock/jobs"
+            - "./libs:/data/stock/libs"
+            - "./web:/data/stock/web"
         environment: 
             MYSQL_HOST: db
             MYSQL_USER: root

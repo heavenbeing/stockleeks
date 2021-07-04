@@ -5,9 +5,9 @@ PWD=`pwd`
 DB_IS_RUN=`docker ps --filter "name=mariadb" --filter "status=running" | wc -l `
 if [ $DB_IS_RUN -lt 2 ]; then
 
-    #判断文件夹存在不。
-    if [ ! -d "/data/mariadb/data" ]; then
-        mkdir -p /data/mariadb/data
+    # 判断文件夹存在不
+    if [ ! -d "${PWD}/data/mysqldb/data" ]; then
+        mkdir -p ${PWD}/data/mysqldb/data
     fi
 
     HAS_DB=`docker images mariadb | wc -l `
@@ -16,21 +16,21 @@ if [ $DB_IS_RUN -lt 2 ]; then
     fi
 
     ####################### 启动数据库 #######################
-    #检查mariadb是否启动
+    # 检查mariadb是否启动
     DB_IS_RUN=`docker ps --filter "name=mariadb" --filter "status=running" | wc -l `
 
     if [ $DB_IS_RUN -ne 2 ]; then
+        ####################### 创建数据库 #######################
         docker run --name mariadb -v ${PWD}/data/mariadb/data:/var/lib/mysql --restart=always \
         -e MYSQL_ROOT_PASSWORD=mariadb -p 3306:3306 -d mariadb:10.5.4
         echo "starting mariadb ..."
+        echo "wait 60 second , mysqldb is starting ."
+        sleep 60
     else
         echo "mariadb is running !!!"
     fi
 
-    ####################### 创建数据库 #######################
-    echo "wait 10 second , and create stock database ."
-    sleep 10
-    #检查mariadb是否启动，等待5秒钟，再次检查mariadb启动
+    # 检查mariadb是否启动，等待5秒钟，再次检查mariadb启动
     DB_IS_RUN=`docker ps --filter "name=mariadb" --filter "status=running" | wc -l `
     if [ $DB_IS_RUN -ne 2 ]; then
         echo "mariadb is not running !!!"
@@ -42,7 +42,7 @@ if [ $DB_IS_RUN -lt 2 ]; then
     fi
 fi
 
-#检查stock启动
+# 检查stock启动
 STOCK_IS_RUN=`docker ps --filter "name=stock" --filter "status=running" | wc -l `
 if [ $STOCK_IS_RUN -ge 2 ]; then
     echo "stop & rm stock ..."

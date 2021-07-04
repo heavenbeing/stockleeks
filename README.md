@@ -312,3 +312,38 @@ https://www.bootcss.com/p/bootstrap-datetimepicker/
 发现了一个东方财富的页面，是给pc端用的。
 可以做个弹出框放到系统中。不进行调整了，长宽高可以做的小点。使用iframe引入界面。否则有跨域和样式问题。
 修改指标页面，改成窗口弹窗，做页面适配，方便查看。
+
+### 15 使用 akshare 做相关股票数据抓取
+
+    
+中国的股市开盘时间为：每周一至周五的上午9:30——11：30，
+下午13:00——15:00。中国股市收盘时间为：每周一至周五的下午3点。
+
+实时行情数据
+接口: stock_zh_a_spot
+目标地址: http://vip.stock.finance.sina.com.cn/mkt/#hs_a
+描述: A 股数据是从新浪财经获取的数据, 重复运行本函数会被新浪暂时封 IP, 建议增加时间间隔
+限量: 单次返回所有 A 股上市公司的实时行情数据
+
+历史行情数据
+日频率
+接口: stock_zh_a_daily
+目标地址: https://finance.sina.com.cn/realstock/company/sh600006/nc.shtml(示例)
+描述: A 股数据是从新浪财经获取的数据, 历史数据按日频率更新; 注意其中的 sh689009 为 CDR, 请 通过 stock_zh_a_cdr_daily 接口获取
+限量: 单次返回指定 A 股上市公司指定日期间的历史行情日频率数据
+
+### 16 升级基础镜像到3.7 python，保障 akshare 0.6.10 以上版本支持
+
+发现 akshare 要求升级python 3.7 以上版本才可以，需要升级基础镜像。
+然后 akshare 就可以升级到 0.9.65 的最新版本了。
+新版本就可以按照日期进行查询，解决 TypeError: stock_zh_a_daily() got an unexpected keyword argument 'start_date' 这个问题了。
+
+# 2021年7月版本，使用 akshare 替换掉 tushare 库
+
+akshare 地址：
+
+https://www.akshare.xyz/zh_CN/latest/introduction.html
+
+AKShare 是基于 Python 的财经数据接口库, 目的是实现对股票、期货、期权、基金、外汇、债券、指数、
+加密货币等金融产品的基本面数据、实时和历史行情数据、衍生数据从数据采集、数据清洗到数据落地的一套工具, 
+主要用于学术研究目的。
