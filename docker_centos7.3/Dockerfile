@@ -1,12 +1,12 @@
-#使用 python:3.6-slim 做基础镜像减少大小。其中tensorflow再用另外的镜像跑数据。
+# 使用 python:3.7-slim 做基础镜像减少大小。其中tensorflow再用另外的镜像跑数据。
 
 # 之前使用的是python:3.6-slim
 # 可以更新 3.7-slim-stretch slim-stretch
 
-# https://hub.docker.com/_/python?tab=tags&page=1&name=3.6-slim-stretch
+# https://hub.docker.com/_/python?tab=tags&page=1&name=3.7-slim-stretch
 # 用这个做为基础镜像，防止每次都进行构建。
 
-FROM docker.io/python:3.6-slim-stretch
+FROM docker.io/python:3.7-slim-stretch
 
 # https://opsx.alibaba.com/mirror
 # 使用阿里云镜像地址。修改debian apt 更新地址，pip 地址，设置时区。
